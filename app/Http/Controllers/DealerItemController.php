@@ -115,7 +115,7 @@ class DealerItemController extends Controller
         $item->di_price=$request->input('item_cost');
         $item->di_status="sold";
         $item->view_price=$request->input('item_price');
-        $item->d_id=0;
+        $item->d_id=1;
 
         if($request->hasfile('item_image')){
             $file=$request->file('item_image');
