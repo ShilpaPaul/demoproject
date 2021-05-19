@@ -124,8 +124,9 @@ Route::group(['middleware'=>['AuthDealer']], function(){
 
     Route::get('/dealeradditem',[DealerItemController::class,'create'])->name('dealeradditem');
 
-    Route::get('/dealer/logout',[DealerController::class,'logout'])->name('dealerlogout');
 });
+
+Route::get('/dealer/logout',[DealerController::class,'logout'])->name('dealerlogout');
 
 
 
