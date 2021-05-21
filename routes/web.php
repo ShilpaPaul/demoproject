@@ -28,6 +28,8 @@ Route::get('/dashindex', function () {
 
 Route::post('/productsearch',[DealerItemController::class,'productsearch']);
 
+Route::get('/fetch_image/{id}',[DealerItemController::class,'fetch_image']);
+
 Route::get('/',[DealerItemController::class,'index']);
 
 Route::post('/dread',[DealerController::class,'store']);
@@ -39,6 +41,11 @@ Route::get('/shopproducts',[DealerItemController::class,'createproducts']);
 Route::post('/message',[MesssageController::class,'store']);
 
 Route::get('/products',[DealerItemController::class,'display'])->name('products');
+
+Route::get('/products/fetch_image/{id}',[DealerItemController::class,'fetch_image']);
+
+Route::get('/shopproducts/fetch_image/{id}',[DealerItemController::class,'fetch_image']);
+
 
 Route::post('/dealer/login',[DealerController::class,'login'])->name('dealerlogin');
 

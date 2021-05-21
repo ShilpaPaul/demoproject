@@ -7,6 +7,10 @@ use App\Models\Sales;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Response;
+ //use App\Images;
+ use Image;
+
 class DealerItemController extends Controller
 {
     /**
@@ -67,41 +71,36 @@ class DealerItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //incomplete
     public function store(Request $request)
     {
         $request->validate([
             'item_name'=>'required',
             'item_description'=>'required',
             'item_price'=>'required',
-            'item_image'=>'required'
+            'item_image'=>'required|image|max:2048'
         ]);
 
         $dealerdata=['LoggedUserInfo'=>DealerModel::where('id','=',session('LoggedDealer'))->first()];
-        $id=session('LoggedDealer', 'id');
-       
+        $dealerid=session('LoggedDealer', 'id');
+
+        $image_file = $request->item_image;
+
+        $image = Image::make($image_file);
+
+        Response::make($image->encode('jpeg'));
+
         $item=new Dealeritem();
         $item->di_name=$request->input('item_name');
         $item->di_desc=$request->input('item_description');
         $item->di_price=$request->input('item_price');
         $item->di_status="pending";
         $item->view_price=0;
-        $item->d_id=$id;
+        $item->d_id=$dealerid;
+        $item->di_image=$image;
 
-        if($request->hasfile('item_image')){
-            $file=$request->file('item_image');
-            $extension=$file->getClientOriginalExtension();
-            $filename=time().'.'.$extension;
-            $file->move('uploads/item/',$filename);
-            $item->di_image=$filename;
-        }
-    
-        else
-        {
-            return $request;
-            $item->di_image='';
-        }
-        
-            $save=$item->save();
+        $save=$item->save();
+
             if($save){
                 return back()->with('t','Item added sucessfully'); 
             }
@@ -118,8 +117,14 @@ class DealerItemController extends Controller
             'item_description'=>'required',
             'item_cost'=>'required',
             'item_price'=>'required',
-            'item_image'=>'required'
+            'item_image'=>'required|image|max:2048'
         ]);
+
+        $image_file = $request->item_image;
+
+        $image = Image::make($image_file);
+
+        Response::make($image->encode('jpeg'));
 
         $item=new Dealeritem();
         $item->di_name=$request->input('item_name');
@@ -128,22 +133,10 @@ class DealerItemController extends Controller
         $item->di_status="sold";
         $item->view_price=$request->input('item_price');
         $item->d_id=1;
+        $item->di_image=$image;
 
-        if($request->hasfile('item_image')){
-            $file=$request->file('item_image');
-            $extension=$file->getClientOriginalExtension();
-            $filename=time().'.'.$extension;
-            $file->move('uploads/item/',$filename);
-            $item->di_image=$filename;
-        }
-    
-        else
-        {
-            return $request;
-            $item->di_image='';
-        }
-        
             $save=$item->save();
+
             if($save){
                 return back()->with('t','Item added sucessfully'); 
             }
@@ -152,6 +145,24 @@ class DealerItemController extends Controller
                 return back()->with('f','Somthing went wrong, Please try again later');
             }
     }
+
+    function fetch_image($image_id)
+    {
+     $image = Dealeritem::findOrFail($image_id);
+
+     $image_file = Image::make($image->di_image);
+
+     echo($image->di_image);
+
+     $response = Response::make($image_file->encode('jpeg'));
+
+     $response->header('Content-Type', 'image/jpeg');
+
+     //return($image->di_image);
+     return $response;
+    }
+
+
     /**
      * Display the specified resource.
      *

@@ -82,8 +82,12 @@ class ShopController extends Controller
     }
     
     public function dealer(){
-        $dis=Dealeritem::where('di_status','=', 'pending')->get();
-        return view('shopdealer')->with('dis',$dis);
+        $data1=Dealeritem::where('di_status','=', 'pending')->get();
+        $data2=Dealeritem::join("dealer_models","dealer_models.id","=","dealeritems.d_id")
+        ->where('dealeritems.di_status','!=', 'pending')
+        ->select('dealeritems.id','dealeritems.di_name','dealeritems.di_desc','dealeritems.di_price','dealeritems.view_price','dealer_models.d_name','dealeritems.di_image','dealeritems.d_id')
+        ->get();
+        return view('shopdealer')->with('data1',$data1)->with('data2',$data2);
     }
 
     public function detail($id,$d_id)

@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-md-4 col-xs-12">
             <div>
-            <img src="{{ asset('uploads/item/'. $item->di_image) }}" alt="image" class="img-fluid wc-image">
+            <img src="/fetch_image/{{ $item->id }}" alt="image" class="img-fluid wc-image">
             </div>
             <br>
             

@@ -31,7 +31,7 @@
     @foreach($dis as $di)
           <div class="col-md-4">
             <div class="product-item">
-              <a href="/productdetail{{$di->id}}"><img class="img-fluid img-responsive" src="{{ asset('uploads/item/'. $di->di_image) }}" alt="image"></a>
+              <a href="/productdetail{{$di->id}}"><img class="img-fluid img-responsive" src="/products/fetch_image/{{ $di->id }}" alt="image"></a>
               <div class="down-content">
                 <a href="/productdetail{{$di->id}}"><h4>{{ $di->di_name }}</h4></a>
                 <h6>

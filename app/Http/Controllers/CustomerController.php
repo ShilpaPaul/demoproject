@@ -108,12 +108,15 @@ class CustomerController extends Controller
         
         $data = Sales::join("customers","customers.id","=","sales.c_id")
         ->join("dealeritems","dealeritems.id","=","sales.item_id")
-        ->where("sales.c_id", '=', $custdata->id)->select("dealeritems.di_image","sales.id","dealeritems.di_name","dealeritems.di_desc","dealeritems.view_price","sales.created_at","sales.address","dealeritems.di_status")->get();
+        ->where("sales.c_id", '=', $custdata->id)->select("dealeritems.di_image","sales.id",'dealeritems.id as item_id',"dealeritems.di_name","dealeritems.di_desc","dealeritems.view_price","sales.created_at","sales.address","dealeritems.di_status")->get();
         $cname=$custdata->c_name;
         
             return view('customerdashdata')->with('data',$data)->with('cname',$cname);
         
     }
+
+    
+
 
     /**
      * Display the specified resource.

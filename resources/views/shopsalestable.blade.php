@@ -5,6 +5,12 @@ hr.rounded {
   border-top: 3px solid #bbb;
   border-radius: 3px;
 }
+/* td.hov{
+  background-color: #e8e8e8;
+} */
+table td:hover {
+    background-color: green;
+}
 </style>
 
         <!-- Page Content  -->
@@ -21,6 +27,7 @@ hr.rounded {
     <table class="table table-stripped  table-responsive">
     <thead class="thead-dark">
     <tr class="dark">
+    <th scope="col" class="text-center">ORDER ID</th>
       <th scope="col" class="text-center">ITEM ID</th>
       <th scope="col"class="text-center">CUSTOMER ID</th>
       <th scope="col"class="text-center">ITEM NAME</th>
@@ -37,15 +44,16 @@ hr.rounded {
     <form action="/delivered{{ $di->id }}" method="post">
     {{csrf_field()}}
       <td>{{ $di->id }}</td>
+      <td>{{ $di->item_id }}</td>
       <td>{{ $di->c_id }}</td>
       <td>{{ $di->di_name }}</td>
-      <td><img src="{{ asset('uploads/item/'. $di->di_image) }}" width="100px" height="100px" alt="image"></td>
+      <td><img src="/fetch_image/{{ $di->item_id }}" width="100px" height="100px" alt="image"></td>
       <td>{{ $di->view_price }}</td>
       <td>{{ $di->created_at->format('d-m-Y') }}</td>
       <td>{{ $di->address }}</td>
       <td class="text-center">
       <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="{{ $di->id }}" name="checked[]" id="flexCheckDefault">
+      <input class="form-check-input" type="checkbox" value="{{ $di->item_id }}" name="checked[]" id="flexCheckDefault">
       </div>
       </td>
     </tr>
@@ -86,8 +94,9 @@ From <input type="date" name="from" id="from" min="05/05/2021" max="05/05/2022">
 <table class="table table-stripped  table-responsive  ">
     <thead class="thead-dark">
     <tr class="dark">
-      <th scope="col">ORDER ID</th>
-      <th scope="col">CUSTOMER ID</th>
+      <th scope="col" class="hover">ORDER ID</th>
+      <th scope="col" >CUSTOMER ID</th>
+      <th scope="col">ITEM ID</th>
       <th scope="col">ITEM NAME</th>
       <th scope="col">ITEM IMAGE</th>
       <th scope="col">PURCHASE COST</th>
@@ -99,10 +108,11 @@ From <input type="date" name="from" id="from" min="05/05/2021" max="05/05/2022">
   <tbody>
         @foreach($data2 as $di)
     <tr>   
-      <td>{{ $di->id }}</td>
+      <th>{{ $di->id }}</th>
       <td>{{ $di->c_id }}</td>
+      <td>{{ $di->item_id }}</td>
       <td>{{ $di->di_name }}</td>
-      <td><img src="{{ asset('uploads/item/'. $di->di_image) }}" width="100px" height="100px" alt="image"></td>
+      <td><img src="/fetch_image/{{ $di->item_id }}" width="100px" height="100px" alt="image"></td>
       <td>{{ $di->di_price }}</td>
       <td>{{ $di->view_price }}</td>
       <th>{{ $di->view_price-$di->di_price }}</th>

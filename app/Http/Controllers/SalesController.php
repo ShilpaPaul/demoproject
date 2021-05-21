@@ -40,13 +40,13 @@ class SalesController extends Controller
         $data1 = Sales::join("customers","customers.id","=","sales.c_id")
         ->join("dealeritems","dealeritems.id","=","sales.item_id")
         ->where("dealeritems.di_status","=","not delivered")
-        ->select("dealeritems.id","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.view_price","sales.created_at","sales.address")->get();
+        ->select("sales.item_id","sales.id","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.view_price","sales.created_at","sales.address")->get();
         
 
         $data2 = Sales::join("customers","customers.id","=","sales.c_id")
         ->join("dealeritems","dealeritems.id","=","sales.item_id")
         ->where("dealeritems.di_status","=","stockout")
-        ->select("sales.id","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.di_price","dealeritems.view_price","sales.created_at")
+        ->select("sales.id","sales.item_id","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.di_price","dealeritems.view_price","sales.created_at")
         ->get();
         
        
@@ -84,14 +84,14 @@ class SalesController extends Controller
         $data1 = Sales::join("customers","customers.id","=","sales.c_id")
         ->join("dealeritems","dealeritems.id","=","sales.item_id")
         ->where("dealeritems.di_status","=","not delivered")
-        ->select("dealeritems.id","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.view_price","sales.created_at","sales.address")->get();
+        ->select("dealeritems.id","sales.item_id","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.view_price","sales.created_at","sales.address")->get();
         
 
         $data2 = Sales::join("customers","customers.id","=","sales.c_id")
         ->join("dealeritems","dealeritems.id","=","sales.item_id")
         ->where("dealeritems.di_status","=","stockout")
         ->whereBetween("sales.created_at", [$from." 00:00:00", $to." 23:59:59"])
-        ->select("sales.id","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.di_price","dealeritems.view_price","sales.created_at")
+        ->select("sales.id","sales.c_id","customers.c_name","sales.item_id","dealeritems.di_name","dealeritems.di_image","dealeritems.di_price","dealeritems.view_price","sales.created_at")
         ->get();
         
        

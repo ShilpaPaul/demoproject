@@ -40,7 +40,7 @@
     </tr>
     <TR>
       <td>Product Image</td>
-      <td><img src="{{ asset('uploads/item/'. $item->di_image) }}" width="100px" height="100px" alt="image"></td>
+      <td><img src="/fetch_image/{{ $item->id }}" width="100px" height="100px" alt="image"></td>
     </TR>
 
     <TR>

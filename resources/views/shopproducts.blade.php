@@ -26,7 +26,9 @@
       <td>{{ $di->id }}</td>
       <td>{{ $di->di_name }}</td>
       <td>{{ $di->di_desc }}</td>
-      <td><img src="{{ asset('uploads/item/'. $di->di_image) }}" width="100px" height="100px" alt="image"></td>
+      <td>
+      <img src="/shopproducts/fetch_image/{{ $di->id }}"  width="100px" height="100px" />
+      </td>
       <td>{{ $di->di_price }}</td>
       <td>{{ $di->view_price }}</td>
       <td>

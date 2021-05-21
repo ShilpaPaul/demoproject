@@ -7,7 +7,7 @@
     <br>
    
     
-   
+   @if(count($msg)>0)
     <table class="table table-stripped  table-responsive  ">
     <thead class="thead-dark">
     <tr class="dark">
@@ -32,4 +32,7 @@
         @endforeach
   </tbody>
   </table>
+  @else
+  <p class="text-dark"><h4>Nil</h4></p>
+  @endif
 @endsection
