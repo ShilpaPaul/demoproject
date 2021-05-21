@@ -48,6 +48,18 @@ class DealerItemController extends Controller
         $dis=Dealeritem::where('di_status','=', 'sold')->get();
         return view('products')->with('dis',$dis);
     }
+
+    public function productsearch(Request $request)
+    {
+        $request->validate([
+            'hint'=>'required'
+        ]);
+        $hint=$request->input('hint'); 
+        $dis=Dealeritem::where('di_name','LIKE',"%{$hint}%")
+        ->where('di_status','=', 'sold')
+        ->get();
+        return view('products')->with('dis',$dis);
+    }
     
     /**
      * Store a newly created resource in storage.

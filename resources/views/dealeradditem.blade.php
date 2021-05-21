@@ -57,6 +57,7 @@
 
     <TR>
         <TD><button class="btn btn-danger">ADD ITEM</button></TD>
+        <td></td>
     </TR>
     </form>
     </table>

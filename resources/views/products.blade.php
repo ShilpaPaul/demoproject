@@ -13,6 +13,17 @@
       </div>
     </div>
 
+    
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand"></a>
+  <form class="form-inline" action="/productsearch" method="POST">
+  {{csrf_field()}}
+    <input class="form-control mr-sm-2" type="search" name="hint" placeholder="Search" aria-label="Search" required/>
+    <button class="btn btn-outline-dark my-2 my-sm-0"  type="submit">Search</button>
+  </form>
+</nav>
+
     <div class="products">
     <div class="container">
     <div class="row">

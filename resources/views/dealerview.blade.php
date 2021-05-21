@@ -5,9 +5,8 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
+<br><br><br>
+
     <div class="container">
     <div class="row">
     
@@ -21,10 +20,11 @@
     </div>
 @endif
     </div>
+    
     <div class="row">
     <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
     
-    <h2>LOGIN</h2>
+    <h2>DEALER LOGIN</h2>
     <form action="{{ route('dealerlogin') }}" method="post">
     @if(Session::get('fail'))
                <div class="alert alert-warning">
@@ -50,11 +50,12 @@
   <br>
   <button type="submit" class="btn btn-danger">LOGIN</button>
 </form>
+<BR>
     </div>
-
+    <BR>   
     <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
     
-    <h2>SIGN-IN</h2>
+    <h2>DEALER SIGN-IN</h2>
     <table class="table table-borderless">
     <form action="/dread" class="form-control" method="post">
     @if(Session::get('fail1'))

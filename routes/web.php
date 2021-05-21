@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DealerController;
-use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\DealerItemController;
 use App\Http\Controllers\SalesController;
@@ -26,6 +25,8 @@ use App\Http\Controllers\MesssageController;
 Route::get('/dashindex', function () {
     return view('dashindex');
 });
+
+Route::post('/productsearch',[DealerItemController::class,'productsearch']);
 
 Route::get('/',[DealerItemController::class,'index']);
 
@@ -52,10 +53,6 @@ Route::post('/remove{id}',[DealerItemController::class,'destroy']);
 Route::get('/productdetail{id}',[DealerItemController::class,'createdetail']);
 
 Route::post('/shopupdateitem{id}',[DealerItemController::class,'update']);
-
-//Route::get('/addproduct',[ItemController::class,'create']); 
-//changed the model
-//Route::post('/additem',[ItemController::class,'store'])->name('additem'); 
 
 Route::post('/shopkeepercheck',[ShopController::class,'check'])->name('shopkeepercheck');
 
@@ -95,9 +92,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/shopmessages',[MesssageController::class,'show']);
 });
 
-Route::post('/addadmin',[ShopController::class,'store']);
 
-Route::get('/addadminview',[ShopController::class,'show']);
 
 Route::group(['middleware'=>['AuthCustomer']], function(){
 

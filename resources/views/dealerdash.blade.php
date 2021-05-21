@@ -24,7 +24,7 @@
     @endif
     <div class="container">
     
-   
+   @if(count($dis)>0)
     <table class="table table-stripped table-hover table-responsive  ">
     <thead class="thead-dark">
     <tr class="dark">
@@ -59,4 +59,7 @@
   {{csrf_field()}}
   <button  class="btn btn-secondary" type="submit">Clear Rejected Items</Button>
   </form>
+  @else
+  <p class="text-dark"><h4>No history</h4></p>
+  @endif
 @endsection
