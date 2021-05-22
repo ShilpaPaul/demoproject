@@ -6,6 +6,7 @@ use App\Models\DealerModel;
 use App\Models\Sales;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+//use .env;
 
 use Illuminate\Support\Facades\Response;
  //use App\Images;
@@ -19,7 +20,7 @@ class DealerItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $dis=igFIUN20of.Dealeritem::where('di_status','=', 'sold')->take(6)->get();
+        $dis=DB_DATABASE.Dealeritem::where('di_status','=', 'sold')->take(6)->get();
         return view('index')->with('dis',$dis);
     }
 
