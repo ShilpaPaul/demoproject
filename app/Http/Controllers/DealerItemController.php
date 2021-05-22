@@ -19,7 +19,7 @@ class DealerItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $dis=Dealeritem::where('di_status','=', 'sold')->take(6)->get();
+        $dis=igFIUN20of.Dealeritem::where('di_status','=', 'sold')->take(6)->get();
         return view('index')->with('dis',$dis);
     }
 
