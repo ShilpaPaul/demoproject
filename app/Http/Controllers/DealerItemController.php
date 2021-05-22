@@ -90,24 +90,37 @@ class DealerItemController extends Controller
 
         Response::make($image->encode('jpeg'));
 
-        $item=new Dealeritem();
-        $item->di_name=$request->input('item_name');
-        $item->di_desc=$request->input('item_description');
-        $item->di_price=$request->input('item_price');
+        // $item=new Dealeritem();
+        // $item->di_name=$request->input('item_name');
+        // $item->di_desc=$request->input('item_description');
+        // $item->di_price=$request->input('item_price');
+        // $item->di_status="pending";
+        // $item->view_price=0;
+        // $item->d_id=$dealerid;
+        // $item->di_image=$image;
+
+        $form_data = array(
+            'user_name'  => $request->user_name,
+            'di_name'=>$request->item_name',
+        $item->di_desc=$request->item_description',
+        $item->di_price=$request->item_price',
         $item->di_status="pending";
         $item->view_price=0;
         $item->d_id=$dealerid;
-        $item->di_image=$image;
+            'user_image' => $image
+           );
+      
+           Images::create($form_data);
 
-        $save=$item->save();
+           return back()->with('t','Item added sucessfully'); 
 
-            if($save){
-                return back()->with('t','Item added sucessfully'); 
-            }
-            else
-            {
-                return back()->with('f','Somthing went wrong, Please try again later');
-            }
+            // if($save){
+            //     return back()->with('t','Item added sucessfully'); 
+            // }
+            // else
+            // {
+            //     return back()->with('f','Somthing went wrong, Please try again later');
+            // }
     }
 
     public function storeshop(Request $request)
