@@ -99,18 +99,21 @@ class DealerItemController extends Controller
         // $item->d_id=$dealerid;
         // $item->di_image=$image;
 
+        $pending="pending";
+        $zero=0;
+
         $form_data = array(
             'user_name'  => $request->user_name,
-            'di_name'=>$request->item_name',
-        $item->di_desc=$request->item_description',
-        $item->di_price=$request->item_price',
-        $item->di_status="pending";
-        $item->view_price=0;
-        $item->d_id=$dealerid;
-            'user_image' => $image
+            'di_name'=>$request->item_name,
+            'di_desc'=>$request->item_description,
+            'di_price'=>$request->item_price,
+            'di_status'=>$pending,
+            'view_price'=>$zero,
+            'd_id'=>$dealerid,
+            'di_image' => $image
            );
       
-           Images::create($form_data);
+           Dealeritem::create($form_data);
 
            return back()->with('t','Item added sucessfully'); 
 
