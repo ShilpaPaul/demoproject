@@ -24,7 +24,7 @@
     @endif
     <div class="container">
    
-   
+   <div class="row">
     <table class="table table-stripped table-hover table-responsive  ">
     <thead class="thead-dark">
     <tr class="dark">
@@ -52,10 +52,12 @@
     </tr>
         @endforeach
   </tbody>
+  </table>
   @else
   <p class="text-dark"><h4>Nil</h4></p>
   @endif
-
+  </div>
+  <div class="row">
   <br>
         <h1 class="mb-4">Purchase History</h1>
    <br>
@@ -97,4 +99,6 @@
   @else
   <p class="text-dark"><h4>No Purchase History</h4></p>
   @endif
+  </div>
+  </div>
 @endsection

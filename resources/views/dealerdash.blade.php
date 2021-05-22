@@ -25,7 +25,7 @@
     <div class="container">
     
    @if(count($dis)>0)
-    <table class="table table-stripped table-hover table-responsive  ">
+    <table class="table table-stripped  table-responsive  ">
     <thead class="thead-dark">
     <tr class="dark">
     <th scope="col">ID</th>
@@ -40,7 +40,8 @@
   </thead>
   <tbody>
         @foreach($dis as $di)
-        <tr class="table-row" data-href="/details{{$di->id}}{{$di->d_id}}">
+        <tr>
+        <!-- <tr class="table-row" data-href="/details{{$di->id}}{{$di->d_id}}"> -->
        {{csrf_field()}}
       <td>{{ $di->id }}</td>
       <td>{{ $di->di_name }}</td>
@@ -55,10 +56,11 @@
   </table>
   <br>
   <br>
+     
   <form action="/remove{{ $LoggedUserInfo['id'] }}" method="POST">
   {{csrf_field()}}
   <button  class="btn btn-secondary" type="submit">Clear Rejected Items</Button>
-  </form>
+  </form>   
   @else
   <p class="text-dark"><h4>No history</h4></p>
   @endif
