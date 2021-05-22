@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterImageDealeritems extends Migration
+class AlterImageByteaDealeritems extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AlterImageDealeritems extends Migration
     public function up()
     {
         Schema::table('dealeritems', function (Blueprint $table) {
-            $table->binary('di_image')->change();
+            $table->bytea('di_image')->change();
         });
     }
 
