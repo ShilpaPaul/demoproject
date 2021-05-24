@@ -73,6 +73,8 @@ Route::get('/customer/logout',[CustomerController::class,'logout'])->name('custo
 Route::group(['middleware'=>['AuthCheck']], function(){
 
     Route::get('/shopkeeperlogin',[ShopController::class,'create'])->name('shopkeeperlogin');
+    
+    Route::get('/orderdetails{id}',[SalesController::class,'orderdetails']);
 
     Route::get('/shopdashboard',[ShopController::class,'dashboard']);
 

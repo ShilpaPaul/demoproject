@@ -71,7 +71,15 @@ class ShopController extends Controller
         $deal=DealerModel::all();
         $d_count=count($deal);
 
-        return view('dashindex')->with('c_count',$c_count)->with('s_count',$s_count)->with('i_count',$i_count)->with('d_count',$d_count);
+        $purchase = Dealeritem::where('di_status','!=', 'pending')->sum('di_price');
+
+        $cash = Dealeritem::where('di_status', 'stockout')->sum('view_price');
+
+        $cash2 = Dealeritem::where('di_status', 'stockout')->sum('di_price');
+
+        $profit = $cash-$cash2;
+
+        return view('dashindex')->with('c_count',$c_count)->with('s_count',$s_count)->with('i_count',$i_count)->with('d_count',$d_count)->with('purchase',$purchase)->with('cash',$cash)->with('profit',$profit);
     }
 
     function logout(){

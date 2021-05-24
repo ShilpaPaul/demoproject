@@ -106,12 +106,21 @@ class CustomerController extends Controller
     function dashboard(){
         $custdata = Customer::where('id','=', session('LoggedCustomer'))->first();
         
-        $data = Sales::join("customers","customers.id","=","sales.c_id")
+        $data1 = Sales::join("customers","customers.id","=","sales.c_id")
         ->join("dealeritems","dealeritems.id","=","sales.item_id")
+        ->where("dealeritems.di_status","=","not delivered")
+        ->orderBy("sales.created_at" ,'desc')
         ->where("sales.c_id", '=', $custdata->id)->select("dealeritems.di_image","sales.id",'dealeritems.id as item_id',"dealeritems.di_name","dealeritems.di_desc","dealeritems.view_price","sales.created_at","sales.address","dealeritems.di_status")->get();
+
+        $data2 = Sales::join("customers","customers.id","=","sales.c_id")
+        ->join("dealeritems","dealeritems.id","=","sales.item_id")
+        ->where("dealeritems.di_status","=","stockout")
+        ->orderBy("sales.created_at" ,'desc')
+        ->where("sales.c_id", '=', $custdata->id)->select("dealeritems.di_image","sales.id",'dealeritems.id as item_id',"dealeritems.di_name","dealeritems.di_desc","dealeritems.view_price","sales.created_at","sales.address","dealeritems.di_status")->get();
+
         $cname=$custdata->c_name;
         
-            return view('customerdashdata')->with('data',$data)->with('cname',$cname);
+            return view('customerdashdata')->with('data1',$data1)->with('data2',$data2)->with('cname',$cname);
         
     }
 

@@ -40,18 +40,31 @@ class SalesController extends Controller
         $data1 = Sales::join("customers","customers.id","=","sales.c_id")
         ->join("dealeritems","dealeritems.id","=","sales.item_id")
         ->where("dealeritems.di_status","=","not delivered")
+        ->orderBy("sales.created_at" ,'asc')
         ->select("sales.item_id","sales.id","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.view_price","sales.created_at","sales.address")->get();
         
 
         $data2 = Sales::join("customers","customers.id","=","sales.c_id")
         ->join("dealeritems","dealeritems.id","=","sales.item_id")
         ->where("dealeritems.di_status","=","stockout")
-        ->select("sales.id","sales.item_id","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.di_price","dealeritems.view_price","sales.created_at")
+        ->orderBy("sales.created_at" ,'desc')
+        ->select("sales.id","sales.item_id","customers.c_name","customers.c_phone","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.di_price","dealeritems.view_price","sales.created_at")
         ->get();
         
        
             return view('shopsalestable')->with('data1',$data1)->with('data2',$data2);
         
+    }
+
+    public function orderdetails($s_id)
+    {
+        $di = Sales::join("customers","customers.id","=","sales.c_id")
+        ->join("dealeritems","dealeritems.id","=","sales.item_id")
+        ->where("sales.id","=",$s_id)
+        //->select("sales.id","sales.item_id","customers.c_name","customers.c_phone","sales.c_id","dealeritems.di_name","dealeritems.di_image","dealeritems.di_price","dealeritems.view_price","sales.created_at")
+        ->first();
+
+        return view('shopsaledetail')->with('di',$di);
     }
 
     public function update(Request $request,$id)

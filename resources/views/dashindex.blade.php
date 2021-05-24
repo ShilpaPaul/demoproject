@@ -64,6 +64,26 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br>
         </div>
+        <br>
+        <div class="row">
+        <div class="jumbotron">
+        <table class="table-responsive">
+        <tr>
+                <td><h3>Total amount received from customers</h3></td>
+                <td><h3>&nbsp;:&nbsp;&nbsp;{{$cash}} /-</h3></td>
+        </tr>
+        <tr>
+                <td><h3>Total profit earned</h3></td>
+                <td><h3>&nbsp;:&nbsp;&nbsp;{{$profit}} /-</h3></td>
+        </tr>
+        <tr>
+                <td><h3>Total amount spend for purchasing antiques</h3></td>
+                <td><h3>&nbsp;:&nbsp;&nbsp;{{$purchase}} /-</h3></td>
+        </tr>
+        
+        </table>
         </div>
-
+        </div>
+        </div>
+        
 @endsection
