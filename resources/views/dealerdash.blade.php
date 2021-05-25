@@ -50,9 +50,9 @@
       <td><img src="/fetch_image/{{ $di->id }}" width="100px" height="100px" alt="image"></td>
       <th>
       @if($di->status=="pending")
-      {{ $di->di_status }}
+      pending
       @elseif($di->status=="rejected")
-      {{ $di->di_status }}
+      rejected
       @else
       sold out
       @endif
