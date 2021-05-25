@@ -49,10 +49,12 @@
       <td>{{ $di->di_price }}</td>
       <td><img src="/fetch_image/{{ $di->id }}" width="100px" height="100px" alt="image"></td>
       <th>
-      @if(($di->status!="pending")&&($di->status!="rejected"))
-      sold out
-      @else
+      @if($di->status=="pending")
       {{ $di->di_status }}
+      @elseif($di->status=="rejected")
+      {{ $di->di_status }}
+      @else
+      sold out
       @endif
       </th>
       <td>{{ $di->created_at->format('d-m-Y') }}</td>
