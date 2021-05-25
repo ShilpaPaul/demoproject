@@ -100,8 +100,8 @@ class ShopController extends Controller
 
     public function detail($id,$d_id)
     {
-        $data = ['di'=>Dealeritem::where('id','=', $id)->first()];
-        $data2= ['dealer'=>DealerModel::where('id','=', $d_id )->first()];
+        $data = Dealeritem::where('id','=', $id)->first();
+        $data2= DealerModel::where('id','=', $d_id )->first();
         return view('shoppurchase',$data,$data2);
     }
 
