@@ -26,6 +26,10 @@ Route::get('/dashindex', function () {
     return view('dashindex');
 });
 
+Route::get('/addadminview',[ShopController::class,'show']);
+
+Route::post('/addadmin',[ShopController::class,'store']);
+
 Route::post('/productsearch',[DealerItemController::class,'productsearch']);
 
 Route::get('/fetch_image/{id}',[DealerItemController::class,'fetch_image']);
