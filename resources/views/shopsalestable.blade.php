@@ -52,7 +52,7 @@ table td:hover {
       <th style="font-weight:normal"><img src="/fetch_image/{{ $di->item_id }}" width="100px" height="100px" alt="image"></th>
       <th style="font-weight:normal">{{ $di->view_price }}</th>
       <th style="font-weight:normal">{{ $di->created_at->format('d-m-Y') }}</th>
-      <th style="font-weight:normal">>{{ $di->address }}</th>
+      <th style="font-weight:normal">{{ $di->address }}</th>
       <th style="font-weight:normal" class="text-center">
       <div class="form-check">
       <input class="form-check-input" type="checkbox" value="{{ $di->item_id }}" name="checked[]" id="flexCheckDefault">
