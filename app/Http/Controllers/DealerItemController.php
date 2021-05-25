@@ -149,7 +149,7 @@ class DealerItemController extends Controller
         $item->di_price=$request->input('item_cost');
         $item->di_status="sold";
         $item->view_price=$request->input('item_price');
-        $item->d_id=1;
+        $item->d_id=0;
         $item->di_image=$image;
 
             $save=$item->save();
