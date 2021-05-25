@@ -86,7 +86,7 @@
       <td>{{ $di->di_price }}</td>
       <td>{{ $di->view_price }}</td>
       <td>
-        @if ($di->d_id == 1)
+        @if ($di->d_id == 0)
        Not from dealer
         @else
         {{ $di->d_name }}
