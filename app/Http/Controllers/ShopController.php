@@ -98,11 +98,12 @@ class ShopController extends Controller
         return view('shopdealer')->with('data1',$data1)->with('data2',$data2);
     }
 
+    //display purchase of dealer item to the shopkeeper
     public function detail($id,$d_id)
     {
-        $data = Dealeritem::where('id','=', $id)->first();
-        $data2= DealerModel::where('id','=', $d_id )->first();
-        return view('shoppurchase',$data,$data2);
+        $di = Dealeritem::where('id','=', $id)->first();
+        $dealer= DealerModel::where('id','=', $d_id )->first();
+        return view('shoppurchase',$di,$dealer);
     }
 
     
