@@ -49,9 +49,9 @@
       <td>{{ $di->di_price }}</td>
       <td><img src="/fetch_image/{{ $di->id }}" width="100px" height="100px" alt="image"></td>
       <th>
-      @if({{$di->status}}=="pending")
+      @if($di->di_status=="pending")
       pending
-      @elseif({{$di->status}}=="rejected")
+      @elseif($di->di_status=="rejected")
       rejected
       @else
       sold out
