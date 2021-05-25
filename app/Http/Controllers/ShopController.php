@@ -103,7 +103,7 @@ class ShopController extends Controller
     {
         $di = Dealeritem::where('id','=', $id)->first();
         $dealer= DealerModel::where('id','=', $d_id )->first();
-        return view('shoppurchase',$di,$dealer);
+        return view('shoppurchase')->with('di',$di)->with('dealer',$dealer);
     }
 
     
