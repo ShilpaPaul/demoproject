@@ -39,7 +39,7 @@
   </thead>
   <tbody>
         @foreach($data1 as $di)
-        <tr class="table-row" data-href="details{{$di->id}}/{{$di->d_id}}">
+        <tr class="table-row" data-href="details{{$di->id}}{{$di->d_id}}">
        {{csrf_field()}}
       <td>{{ $di->id }}</td>
       <td>{{ $di->di_name }}</td>
