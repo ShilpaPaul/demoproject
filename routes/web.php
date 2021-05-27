@@ -73,6 +73,8 @@ Route::post('/customer/login',[CustomerController::class,'login'])->name('custom
 
 Route::get('/customer/logout',[CustomerController::class,'logout'])->name('customerlogout');
 
+Route::get('/shopkeeper/logout',[ShopController::class,'logout'])->name('shopkeeperlogout');
+
 
 Route::group(['middleware'=>['AuthCheck']], function(){
 
@@ -84,11 +86,9 @@ Route::group(['middleware'=>['AuthCheck']], function(){
 
     Route::get('/shopdealer',[ShopController::class,'dealer'])->name('shopdealer');
 
-    Route::get('/details{id}{d_id}',[ShopController::class,'detail']);
+    Route::get('/details/{id}/{d_id}',[ShopController::class,'detail']);
 
     Route::get('/shopadditem',[DealerItemController::class,'createshop'])->name('shopadditem');
-
-    Route::get('/shopkeeper/logout',[ShopController::class,'logout'])->name('shopkeeperlogout');
 
     Route::get('/shopbuyitem{id}',[DealerItemController::class,'edit'])->name('shopbuyitem');
     
