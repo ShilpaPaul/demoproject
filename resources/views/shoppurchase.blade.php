@@ -8,6 +8,15 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+    <style>
+hr.rounded {
+  border-top: 3px solid #bbb;
+  border-radius: 3px;
+}
+</style>
+
   </head>
   <body>
 		
@@ -48,12 +57,7 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-<style>
-hr.rounded {
-  border-top: 3px solid #bbb;
-  border-radius: 3px;
-}
-</style>
+
         <!-- Page Content  -->
     <br>
         <h1 class="mb-4">Item Details</h1>
@@ -141,7 +145,7 @@ hr.rounded {
       
       
 </div>
-</div>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
