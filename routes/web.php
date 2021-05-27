@@ -86,7 +86,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
 
     Route::get('/shopdealer',[ShopController::class,'dealer'])->name('shopdealer');
 
-    Route::get('/details/{id}/{d_id}',[ShopController::class,'detail']);
+    Route::get('/details{id}/{d_id}',[ShopController::class,'detail']);
 
     Route::get('/shopadditem',[DealerItemController::class,'createshop'])->name('shopadditem');
 
