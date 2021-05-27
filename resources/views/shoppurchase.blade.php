@@ -32,7 +32,7 @@ hr.rounded {
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6">
         
         <img src="/fetch_image/{{ $di->id }}" class="img-fluid" alt="image">
-        
+        /fetch_image/{{ $di->id }}
         </div>
     <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-6">
     <br>
