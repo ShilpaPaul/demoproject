@@ -137,11 +137,7 @@ class DealerItemController extends Controller
             'item_image'=>'required|image|max:2048'
         ]);
 
-        $image_file = $request->item_image;
-
-        $image = Image::make($image_file);
-
-        Response::make($image->encode('jpeg'));
+        
 
         $item=new Dealeritem();
         $item->di_name=$request->input('item_name');
@@ -149,8 +145,16 @@ class DealerItemController extends Controller
         $item->di_price=$request->input('item_cost');
         $item->di_status="sold";
         $item->view_price=$request->input('item_price');
-        $item->d_id=0;
-        $item->di_image=$image;
+        $item->d_id=1;
+        
+        if($request->hasfile('item_image')){
+            $file=$request->file('item_image');
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move(public_path('assets/item'),$filename);
+            $item->di_image=$filename;
+        }
+    
 
             $save=$item->save();
 
@@ -163,21 +167,21 @@ class DealerItemController extends Controller
             }
     }
 
-    function fetch_image($image_id)
-    {
-     $image = Dealeritem::findOrFail($image_id);
+    // function fetch_image($image_id)
+    // {
+    //  $image = Dealeritem::findOrFail($image_id);
 
-     $image_file = Image::make($image->di_image);
+    //  $image_file = Image::make($image->di_image);
 
-     echo($image->di_image);
+    //  echo($image->di_image);
 
-     $response = Response::make($image_file->encode('jpeg'));
+    //  $response = Response::make($image_file->encode('jpeg'));
 
-     $response->header('Content-Type', 'image/jpeg');
+    //  $response->header('Content-Type', 'image/jpeg');
 
-     //return($image->di_image);
-     return $response;
-    }
+    //  //return($image->di_image);
+    //  return $response;
+    // }
 
 
     /**
