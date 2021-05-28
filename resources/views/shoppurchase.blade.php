@@ -83,10 +83,10 @@ hr.rounded {
 
     <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
         <center>
-        <a href="/shopbuyitem{{$di['id']}}" class="btn btn-success">&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;  BUY  &nbsp;&nbsp; </a>
+        <a href="/shopbuyitem{{$di['id']}}" class="btn btn-success">&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>&nbsp;  BUY  &nbsp;&nbsp; </a>
         <br>
         <br>
-        <form action="/delete{{$di['id']}}" method="post">{{csrf_field()}}<button type="submit" onclick="return confirm('Are you sure want to reject this item?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp; REJECT</button></form> 
+        <form action="/delete{{$di['id']}}" method="post">{{csrf_field()}}<button type="submit" onclick="return confirm('Are you sure want to reject this item?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> REJECT</button></form> 
         </center>
     </div>
 
