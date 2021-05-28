@@ -1,15 +1,12 @@
-<!doctype html>
-<html lang="en">
-  <head>
-  	<title>Heirloom</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heirloom</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
 hr.rounded {
   border-top: 3px solid #bbb;
@@ -20,48 +17,10 @@ hr.rounded {
   </head>
   <body>
 		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-	          <i class="fa fa-bars"></i>
-	          <span class="sr-only">Toggle Menu</span>
-	        </button>
-        </div>
-	  		<h1><a href="#" class="logo"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp; Shopkeeper</a></h1>
-        <ul class="list-unstyled components mb-5">
-          <li class="active">
-            <a href="/"><span class="fa fa-home mr-3"></span> Home</a>
-          </li>
-          <li>
-              <a href="/shopdashboard"><span class="fa fa-user mr-3"></span> Dashboard</a>
-          </li>
-          <li>
-            <a href="{{ route('shopsalestable') }}"><span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp; Sales</a>
-          </li>
-          <li>
-            <a href="{{ route('shopadditem') }}"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; Add Products</a>
-          </li>
-          <li>
-            <a href="{{ route('shopdealer') }}"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp; Purchase</a>
-          </li>
-          <li>
-            <a href="/shopmessages"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp; Show Messages</a>
-          </li>
-          <li>
-            <a href="{{ route('shopkeeperlogout') }}"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp; Logout</a>
-          </li>
-        </ul>
-
-    	</nav>
+		
 
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
-
-        <!-- Page Content  -->
-    <br>
-        <h1 class="mb-4">Item Details</h1>
-    <br>
+    
     @if(Session::get('f'))
                <div class="alert alert-danger">
                   {{ Session::get('f') }}
@@ -80,6 +39,9 @@ hr.rounded {
     <br>
     <div class="container">
     <div class="row">
+    <br>
+        <h1 class="mb-4">Item Details</h1>
+    <br>
     <div class="jumbotron">
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6">
         
@@ -144,11 +106,6 @@ hr.rounded {
       
       
       
-</div>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   </body>
 </html>
